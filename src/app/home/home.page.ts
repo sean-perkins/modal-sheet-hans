@@ -11,7 +11,8 @@ import { ModalBreakpointChangeEventDetail } from '@ionic/core';
 export class HomePage {
 
   @ViewChild('sheetModal') sheetModal: IonModal;
-  @ViewChild('paidModal') paidModal: IonModal;
+
+  breakpoints = [0, 0.25, 0.5];
 
   showPaymentInformation = false;
   confirmedPayment = false;
@@ -33,15 +34,9 @@ export class HomePage {
     }
   }
 
-  async confirmPayment() {
+  confirmPayment() {
     this.confirmedPayment = true;
-    await Promise.all([
-      this.paidModal.present(),
-      this.sheetModal.setCurrentBreakpoint(0.25)
-    ]);
-    requestAnimationFrame(() => {
-      this.sheetModal.dismiss();
-    });
+    this.breakpoints = [0, 0.25];
   }
 
 }
