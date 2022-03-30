@@ -1,0 +1,7 @@
+{
+  "name": "modal-sheet-hans",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
